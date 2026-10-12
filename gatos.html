@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAWIPO - Especial Gatos</title>
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Banner Superior Informativo -->
+    <div class="top-bar">
+        Envío gratis en Lima por compras desde S/ 99 - ¡Aprovecha hoy!
+    </div>
+
+    <!-- Encabezado con Enlace a Inicio -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <h1>MAWIPO</h1>
+                    <p>Guapo • Alimentos • Accesorios • Medicamentos</p>
+                </a>
+            </div>
+
+            <!-- Buscador -->
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué necesita tu gato hoy?">
+                <button aria-label="Buscar"><i data-lucide="search"></i></button>
+            </div>
+
+            <!-- Acciones de Usuario -->
+            <div class="header-actions">
+                <button class="action-btn" onclick="openModal('modal-login')">
+                    <i data-lucide="user"></i>
+                    <span>Mi cuenta</span>
+                </button>
+                <button class="action-btn">
+                    <i data-lucide="heart"></i>
+                    <span>Favoritos</span>
+                </button>
+                <button class="action-btn cart-btn" onclick="toggleCart()">
+                    <i data-lucide="shopping-cart"></i>
+                    <span>Carrito</span>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Principal con Navegación -->
+        <nav class="main-nav">
+            <div class="container nav-links">
+                <a href="index.html">← Inicio</a>
+                <a href="perros.html">Perros 🐶</a>
+                <a href="gatos.html" class="active">Gatos 🐱</a>
+                <a href="#alimento">Alimento</a>
+                <a href="#arena">Arena</a>
+                <a href="#rascadores">Rascadores</a>
+                <a href="#juguetes">Juguetes</a>
+                <a href="#higiene">Higiene</a>
+                <a href="index.html#ofertas" class="highlight">Ofertas %</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner Hero Especial Gatos (Basado en Figma) -->
+        <section class="hero-cats">
+            <div class="container hero-cats-card">
+                <div class="hero-cats-text">
+                    <span class="pill-badge-cat">🐱 ESPECIAL GATOS</span>
+                    <h2>Todo para su mundo.<br><span class="highlight-text-cat">Todo en Mawipo.</span></h2>
+                    <p>Nutrición, juegos y rincones para descansar. Encuentra todo lo que tu gato necesita para ronronear cada día.</p>
+                    <a href="#favoritos-miau" class="btn btn-dark-pill">Ver favoritos →</a>
+                </div>
+                <div class="hero-cats-image">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=700&q=80" alt="Gato Feliz Mawipo">
+                    <div class="love-badge">
+                        <i data-lucide="shield-check"></i>
+                        <div>
+                            <strong>Elegido con amor</strong>
+                            <span>para tu felino</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explorar Su Mundo (Categorías de Gatos) -->
+        <section class="explore-section container">
+            <div class="section-header">
+                <span class="subtext-cat">EXPLORA SU MUNDO</span>
+                <h3 class="section-title">¿Qué estamos buscando?</h3>
+            </div>
+            <div class="categories-pills">
+                <a href="#alimento" class="pill-card">
+                    <i data-lucide="utensils"></i>
+                    <span>Alimento</span>
+                </a>
+                <a href="#arena" class="pill-card">
+                    <i data-lucide="box"></i>
+                    <span>Arena</span>
+                </a>
+                <a href="#rascadores" class="pill-card">
+                    <i data-lucide="align-justify"></i>
+                    <span>Rascadores</span>
+                </a>
+                <a href="#juguetes" class="pill-card">
+                    <i data-lucide="smile"></i>
+                    <span>Juguetes</span>
+                </a>
+                <a href="#higiene" class="pill-card">
+                    <i data-lucide="sparkles"></i>
+                    <span>Higiene</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Los Más Queridos: Favoritos que hacen miau -->
+        <section class="products container" id="favoritos-miau">
+            <div class="section-header flex-between">
+                <div>
+                    <span class="subtext-cat">LOS MÁS QUERIDOS</span>
+                    <h3 class="section-title">Favoritos que hacen miau 🐾</h3>
+                </div>
+                <a href="#" class="link-more">Ver todo →</a>
+            </div>
+
+            <!-- Filtros de Categoría -->
+            <div class="filter-tabs">
+                <button class="tab-btn active">Todos</button>
+                <button class="tab-btn">Alimento</button>
+                <button class="tab-btn">Juegos</button>
+            </div>
+
+            <div class="product-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <span class="tag tag-discount">-10%</span>
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=300&q=80" alt="Pack Nutrición Felina">
+                    <h4 class="product-title">Pack nutrición felina</h4>
+                    <p class="price"><span class="old-price">S/ 94.90</span> S/ 84.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Pack nutrición felina', 84.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=300&q=80" alt="Rascador Explorador">
+                    <h4 class="product-title">Rascador explorador</h4>
+                    <p class="price">S/ 74.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Rascador explorador', 74.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1513205523191-e2413b632009?auto=format&fit=crop&w=300&q=80" alt="Box Juegos Curiosos">
+                    <h4 class="product-title">Box juegos curiosos</h4>
+                    <p class="price">S/ 39.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Box juegos curiosos', 39.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card">
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=300&q=80" alt="Set Siesta Perfecta">
+                    <h4 class="product-title">Set siesta perfecta</h4>
+                    <p class="price">S/ 109.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Set siesta perfecta', 109.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- Banner Suscripción Club Mawipo (Gatos) -->
+        <section class="club-banner container">
+            <div class="club-card">
+                <div class="club-info">
+                    <span class="subtext-light">CLUB MAWIPO</span>
+                    <h3>Cuidarlo bien también puede ser fácil.</h3>
+                    <p>Recibe consejos, descuentos y recordatorios pensados para la etapa de vida de tu gato.</p>
+                </div>
+                <button class="btn btn-light-pill" onclick="openModal('modal-club-gatos')">Quiero unirme →</button>
+            </div>
+        </section>
+
+        <!-- Blog y Consejos Mawipo Lovers -->
+        <section class="blog-section container">
+            <div class="section-header">
+                <span class="subtext-cat">MAWIPO LOVERS</span>
+                <h3 class="section-title">Consejos para colitas felices</h3>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <span class="blog-tag-cat">NUTRICIÓN</span>
+                    <h4>¿Cómo elegir su alimento según su edad?</h4>
+                    <a href="#" class="blog-link">Leer consejo →</a>
+                </article>
+                <article class="blog-card">
+                    <span class="blog-tag-cat">BIENESTAR</span>
+                    <h4>5 señales de que tu gato necesita más juego</h4>
+                    <a href="#" class="blog-link">Leer consejo →</a>
+                </article>
+                <article class="blog-card">
+                    <span class="blog-tag-cat">HOGAR</span>
+                    <h4>Una guía simple para elegir el arenero ideal</h4>
+                    <a href="#" class="blog-link">Leer consejo →</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="logo-footer">MAWIPO</h4>
+                <p>@mawipo.pet</p>
+                <p>Tu tienda pet de confianza. Todo lo que tu mascota necesita al mejor precio.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explora</h4>
+                <ul>
+                    <li><a href="perros.html">Perros</a></li>
+                    <li><a href="gatos.html">Gatos</a></li>
+                    <li><a href="#alimento">Alimento</a></li>
+                    <li><a href="#rascadores">Rascadores</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Estamos contigo</h4>
+                <p>⚡ Envíos rápidos directos a tu puerta.</p>
+                <p>🔒 Compra 100% segura.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Te ayudamos</h4>
+                <p>📞 (01) 234-5678</p>
+                <p>📱 +51 920-455-888</p>
+                <p>✉️ hola@mawipo.pe</p>
+                <p>📍 Lima, Perú</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante para Gatos -->
+    <a href="https://wa.me/51920455888?text=Hola%20Mawipo,%20estoy%20en%20la%20secci%C3%B3n%20de%20Gatos%20y%20tengo%20una%20consulta" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Carrito Desplegable -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito de Compras</h3>
+            <button onclick="toggleCart()" class="close-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-msg">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">S/ 0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="checkout()">Procesar Pedido</button>
+        </div>
+    </aside>
+
+    <!-- Modal Dinámico -->
+    <div class="modal-overlay" id="modal-container">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAWIPO - Tu tienda pet favorita</title>
+    <!-- Iconos de Lucide (vía CDN para interfaz moderna) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Bóner Superior Informativo -->
+    <div class="top-bar">
+        Envío gratis en compras mayores a S/79 - ¡Solo por tiempo limitado!
+    </div>
+
+    <!-- Encabezado y Navegación -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>MAWIPO</h1>
+                <p>Guapo • Alimentos • Accesorios • Medicamentos</p>
+            </div>
+
+            <!-- Buscador Integrado -->
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos, marcas, alimentos...">
+                <button aria-label="Buscar"><i data-lucide="search"></i></button>
+            </div>
+
+            <!-- Acciones de Usuario -->
+            <div class="header-actions">
+                <button class="action-btn" id="btn-login" onclick="openModal('modal-login')">
+                    <i data-lucide="user"></i>
+                    <span>Mi cuenta</span>
+                </button>
+                <button class="action-btn">
+                    <i data-lucide="heart"></i>
+                    <span>Favoritos</span>
+                </button>
+                <button class="action-btn cart-btn" id="btn-cart" onclick="toggleCart()">
+                    <i data-lucide="shopping-cart"></i>
+                    <span>Carrito</span>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú de Categorías -->
+        <nav class="main-nav">
+            <div class="container nav-links">
+                <a href="perros.html">Perros</a>
+                <a href="gatos.html">Gatos</a>
+                <a href="marcas.html">Marcas</a>
+                <a href="blog.html">Blog</a>
+                <a href="ofertas.html" class="highlight">Ofertas %</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero / Banner Principal -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="badge">MAWIPET TU TIENDA PET FAVORITA</span>
+                    <h2>Todo para tu mejor amigo</h2>
+                    <p>Envío gratis en pedidos mayores a S/79</p>
+                    <a href="#destacados" class="btn btn-primary">Ver ofertas</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80" alt="Perro Mawipo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Categorías -->
+        <section class="categories container">
+            <h3 class="section-title">Compra por categoría</h3>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=300&q=80" alt="Perros">
+                    <h4>Perros</h4>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=300&q=80" alt="Gatos">
+                    <h4>Gatos</h4>
+                </div>
+                <div class="category-card promo-card bg-orange">
+                    <h4>Super Ofertas</h4>
+                    <p>Hasta 40% OFF</p>
+                    <button class="btn btn-sm" onclick="showNotification('Aprovecha nuestras ofertas especiales')">Ver ofertas</button>
+                </div>
+                <div class="category-card promo-card bg-red">
+                    <h4>Liquidación</h4>
+                    <p>Stock Limitado</p>
+                    <button class="btn btn-sm" onclick="showNotification('Últimas unidades en stock')">Comprar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Destacados -->
+        <section class="products container" id="destacados">
+            <h3 class="section-title">Productos destacados</h3>
+            <div class="product-grid">
+
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <span class="tag tag-discount">-21%</span>
+                    <span class="tag tag-seller">MÁS VENDIDO</span>
+                    <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=300&q=80" alt="Royal Canin">
+                    <div class="rating">★★★★★ (12)</div>
+                    <h4 class="product-title">Royal Canin Medium Adult 15kg</h4>
+                    <p class="price"><span class="old-price">S/189.90</span> S/149.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Royal Canin Medium Adult 15kg', 149.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <span class="tag tag-new">NUEVO</span>
+                    <img src="https://images.unsplash.com/photo-1608408845808-81a1795b54fa?auto=format&fit=crop&w=300&q=80" alt="Pro Plan">
+                    <div class="rating">★★★★☆ (8)</div>
+                    <h4 class="product-title">Pro Plan Adulto Pollo 17kg</h4>
+                    <p class="price">S/109.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Pro Plan Adulto Pollo 17kg', 109.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <span class="tag tag-discount">-15%</span>
+                    <img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=300&q=80" alt="Hills">
+                    <div class="rating">★★★★★ (20)</div>
+                    <h4 class="product-title">Hills Science Diet Puppy 7kg</h4>
+                    <p class="price"><span class="old-price">S/129.90</span> S/109.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Hills Science Diet Puppy 7kg', 109.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card">
+                    <span class="tag tag-liq">LIQUIDACIÓN</span>
+                    <img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=300&q=80" alt="Whiskas">
+                    <div class="rating">★★★★☆ (15)</div>
+                    <h4 class="product-title">Whiskas Adulto Atún 18kg</h4>
+                    <p class="price">S/69.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Whiskas Adulto Atún 18kg', 69.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Etapa de Vida -->
+        <section class="life-stages container">
+            <h3 class="section-title">Por etapa de vida</h3>
+            <div class="stages-grid">
+                <div class="stage-card">
+                    <h4>Cachorros</h4>
+                    <p>0 - 12 meses</p>
+                    <a href="#">Ver productos →</a>
+                </div>
+                <div class="stage-card">
+                    <h4>Jóvenes</h4>
+                    <p>1 - 3 años</p>
+                    <a href="#">Ver productos →</a>
+                </div>
+                <div class="stage-card">
+                    <h4>Adultos</h4>
+                    <p>3 - 7 años</p>
+                    <a href="#">Ver productos →</a>
+                </div>
+                <div class="stage-card">
+                    <h4>Senior</h4>
+                    <p>7+ años</p>
+                    <a href="#">Ver productos →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas Destacadas -->
+        <section class="brands container">
+            <h3 class="section-title">Marcas que amamos</h3>
+            <div class="brand-tags">
+                <span>Royal Canin</span>
+                <span>Hills</span>
+                <span>Pro Plan</span>
+                <span>Whiskas</span>
+                <span>Pedigree</span>
+                <span>Purina</span>
+                <span>Eukanuba</span>
+                <span>Iams</span>
+                <span>Fancy Feast</span>
+                <span>Acana</span>
+            </div>
+        </section>
+
+        <!-- Garantías de Servicio -->
+        <section class="guarantees container">
+            <div class="guarantee-item">
+                <i data-lucide="shield-check"></i>
+                <p>100% Garantizado</p>
+            </div>
+            <div class="guarantee-item">
+                <i data-lucide="credit-card"></i>
+                <p>Pago Seguro</p>
+            </div>
+            <div class="guarantee-item">
+                <i data-lucide="truck"></i>
+                <p>Envío Rápido</p>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container newsletter-content">
+                <h3>Únete a la familia Mawipo</h3>
+                <p>Recibe ofertas exclusivas, tips de cuidado y novedades directo en tu correo.</p>
+                <form id="form-newsletter" onsubmit="handleNewsletter(event)" class="newsletter-form">
+                    <input type="email" placeholder="Tu@correo.com" required>
+                    <button type="submit" class="btn btn-dark">Suscribirme</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>MAWIPO</h4>
+                <p>Tu tienda pet de confianza. Todo lo que tu mascota necesita al mejor precio.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">Perros</a></li>
+                    <li><a href="#">Gatos</a></li>
+                    <li><a href="#">Aves</a></li>
+                    <li><a href="#">Peces</a></li>
+                    <li><a href="#">Reptiles</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>📞 (01) 234-5678</p>
+                <p>📱 +51 920-455-888</p>
+                <p>✉️ hola@mawipo.pe</p>
+                <p>📍 Lima, Perú</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#">Mi cuenta</a></li>
+                    <li><a href="#">Mis pedidos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container payment-methods">
+            <p>Medios de pago aceptados:</p>
+            <div class="payment-badges">
+                <span>Visa</span>
+                <span>Mastercard</span>
+                <span>Yape</span>
+                <span>Plin</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp (Táctica Mobile Marketing) -->
+    <a href="https://wa.me/51920455888?text=Hola%20Mawipo,%20tengo%20una%20consulta" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Sidebar del Carrito de Compras -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito de Compras</h3>
+            <button onclick="toggleCart()" class="close-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-msg">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">S/0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="abrirCheckout()">Generar Pedido</button>
+        </div>
+    </aside>
+
+    <!-- Modal de Confirmación y Registro -->
+    <!-- Modal de Proceso de Compra -->
+<div id="modal-checkout" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close-btn" onclick="cerrarCheckout()">&times;</span>
+    <h2>Finalizar Compra - MAWIPO</h2>
+    
+    <div id="checkout-paso-1">
+      <h3>1. Resumen de tu Pedido</h3>
+      <div id="resumen-productos-checkout"></div>
+      <p style="margin-top:10px;"><strong>Total a pagar: S/ <span id="total-checkout">0.00</span></strong></p>
+      
+      <h3 style="margin-top:15px;">2. Datos de Envío</h3>
+      <form id="form-envio" onsubmit="procesarPago(event)">
+        <input type="text" placeholder="Nombre completo" required class="input-checkout">
+        <input type="tel" placeholder="Teléfono / WhatsApp" required class="input-checkout">
+        <input type="text" placeholder="Dirección de entrega" required class="input-checkout">
+        
+        <h3 style="margin-top:15px;">3. Método de Pago</h3>
+        <div class="metodos-pago">
+          <label><input type="radio" name="pago" value="Yape/Plin" checked> Yape / Plin</label>
+          <label><input type="radio" name="pago" value="Tarjeta"> Tarjeta Crédito/Débito</label>
+          <label><input type="radio" name="pago" value="Contraentrega"> Pago Contra Entrega</label>
+        </div>
+        
+        <button type="submit" class="btn-confirmar-pago">Confirmar y Enviar a WhatsApp</button>
+      </form>
+    </div>
+
+    <!-- Pantalla de Confirmación -->
+    <div id="checkout-paso-2" style="display: none; text-align: center;">
+      <h3>¡Gracias por tu compra en MAWIPO!</h3>
+      <p>Tu pedido <strong>#MW-<span id="num-pedido"></span></strong> fue generado.</p>
+      <p>Se ha abierto WhatsApp para enviar tu orden.</p>
+      <button onclick="finalizarTodo()" class="btn-confirmar-pago">Volver a la tienda</button>
+    </div>
+  </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAWIPO - Ofertas y Promociones Especiales</title>
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Banner Superior Informativo -->
+    <div class="top-bar">
+        🔥 ¡Super Ofertas de la Semana! Envíos gratis en Lima desde S/ 99
+    </div>
+
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <h1>MAWIPO</h1>
+                    <p>Guapo • Alimentos • Accesorios • Medicamentos</p>
+                </a>
+            </div>
+
+            <!-- Buscador -->
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos en descuento...">
+                <button aria-label="Buscar"><i data-lucide="search"></i></button>
+            </div>
+
+            <!-- Acciones de Usuario -->
+            <div class="header-actions">
+                <button class="action-btn" onclick="openModal('modal-login')">
+                    <i data-lucide="user"></i>
+                    <span>Mi cuenta</span>
+                </button>
+                <button class="action-btn">
+                    <i data-lucide="heart"></i>
+                    <span>Favoritos</span>
+                </button>
+                <button class="action-btn cart-btn" onclick="toggleCart()">
+                    <i data-lucide="shopping-cart"></i>
+                    <span>Carrito</span>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Principal con Navegación -->
+        <nav class="main-nav">
+            <div class="container nav-links">
+                <a href="index.html">← Inicio</a>
+                <a href="perros.html">Perros 🐶</a>
+                <a href="gatos.html">Gatos 🐱</a>
+                <a href="marcas.html">Marcas 🏷️</a>
+                <a href="blog.html">Blog 📚</a>
+                <a href="ofertas.html" class="active highlight">Ofertas % 🔥</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Banner Ofertas -->
+        <section class="hero-offers">
+            <div class="container hero-offers-card">
+                <div class="hero-offers-text">
+                    <span class="pill-badge-offers">🔥 ZONA DE DESCUENTOS</span>
+                    <h2>Ahorra al máximo en los<br><span class="highlight-text-offers">favoritos de tu mascota.</span></h2>
+                    <p>Aprovecha ofertas exclusivas, liquidación de stock y combos especiales por tiempo limitado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtro por Categoria de Promoción -->
+        <section class="offers-categories-section container">
+            <h3 class="section-title">Filtrar promociones</h3>
+            <div class="offers-category-pills">
+                <button class="offers-pill active">Todas las Ofertas</button>
+                <button class="offers-pill">Super Descuentos</button>
+                <button class="offers-pill">Combos 2x1</button>
+                <button class="offers-pill">Liquidación</button>
+            </div>
+        </section>
+
+        <!-- Catálogo de Productos en Oferta -->
+        <section class="products container">
+            <h3 class="section-title">Ofertas destacadas del día</h3>
+            <div class="product-grid">
+
+                <!-- Producto en Oferta 1 -->
+                <article class="product-card">
+                    <span class="tag tag-discount">-30% OFF</span>
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=300&q=80" alt="Royal Canin Oferta">
+                    <h4 class="product-title">Royal Canin Medium Adult 15kg</h4>
+                    <p class="price"><span class="old-price">S/ 199.90</span> S/ 139.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Royal Canin Medium Adult 15kg (OFERTA)', 139.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto en Oferta 2 -->
+                <article class="product-card">
+                    <span class="tag tag-liq">LIQUIDACIÓN</span>
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=300&q=80" alt="Whiskas Oferta">
+                    <h4 class="product-title">Whiskas Adulto Atún 18kg</h4>
+                    <p class="price"><span class="old-price">S/ 89.90</span> S/ 59.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Whiskas Adulto Atún 18kg (OFERTA)', 59.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto en Oferta 3 -->
+                <article class="product-card">
+                    <span class="tag tag-new">2x1 ESPECIAL</span>
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=300&q=80" alt="Snacks Caninos">
+                    <h4 class="product-title">Pack Dupla Premios Saludables 500g</h4>
+                    <p class="price"><span class="old-price">S/ 49.90</span> S/ 29.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Pack Dupla Premios Saludables 500g', 29.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto en Oferta 4 -->
+                <article class="product-card">
+                    <span class="tag tag-discount">-25% OFF</span>
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=300&q=80" alt="Rascador Oferta">
+                    <h4 class="product-title">Rascador Felino Multinivel</h4>
+                    <p class="price"><span class="old-price">S/ 149.90</span> S/ 112.40</p>
+                    <button class="btn btn-add" onclick="addToCart('Rascador Felino Multinivel (OFERTA)', 112.40)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="logo-footer">MAWIPO</h4>
+                <p>@mawipo.pet</p>
+                <p>Tu tienda pet de confianza. Todo lo que tu mascota necesita al mejor precio.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explora</h4>
+                <ul>
+                    <li><a href="perros.html">Perros</a></li>
+                    <li><a href="gatos.html">Gatos</a></li>
+                    <li><a href="marcas.html">Marcas</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Estamos contigo</h4>
+                <p>⚡ Envíos rápidos directos a tu puerta.</p>
+                <p>🔒 Compra 100% segura.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Te ayudamos</h4>
+                <p>📞 (01) 234-5678</p>
+                <p>📱 +51 920-455-888</p>
+                <p>✉️ hola@mawipo.pe</p>
+                <p>📍 Lima, Perú</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/51920455888?text=Hola%20Mawipo,%20tengo%20una%20consulta%20sobre%20sus%20ofertas" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Carrito Desplegable -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito de Compras</h3>
+            <button onclick="toggleCart()" class="close-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-msg">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">S/ 0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="checkout()">Procesar Pedido</button>
+        </div>
+    </aside>
+
+    <!-- Modal Dinámico -->
+    <div class="modal-overlay" id="modal-container">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

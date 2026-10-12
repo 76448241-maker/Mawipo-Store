@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAWIPO - Especial Perros</title>
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Banner Superior Informativo -->
+    <div class="top-bar">
+        Envío gratis en Lima por compras desde S/ 99 - ¡Aprovecha hoy!
+    </div>
+
+    <!-- Encabezado con Enlace a Inicio -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <h1>MAWIPO</h1>
+                    <p>Guapo • Alimentos • Accesorios • Medicamentos</p>
+                </a>
+            </div>
+
+            <!-- Buscador -->
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué necesita tu perro hoy?">
+                <button aria-label="Buscar"><i data-lucide="search"></i></button>
+            </div>
+
+            <!-- Acciones de Usuario -->
+            <div class="header-actions">
+                <button class="action-btn" onclick="openModal('modal-login')">
+                    <i data-lucide="user"></i>
+                    <span>Mi cuenta</span>
+                </button>
+                <button class="action-btn">
+                    <i data-lucide="heart"></i>
+                    <span>Favoritos</span>
+                </button>
+                <button class="action-btn cart-btn" onclick="toggleCart()">
+                    <i data-lucide="shopping-cart"></i>
+                    <span>Carrito</span>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Principal con navegación entre Inicio y Perros -->
+        <nav class="main-nav">
+            <div class="container nav-links">
+                <a href="index.html">← Inicio</a>
+                <a href="perros.html" class="active">Perros 🐶</a>
+                <a href="index.html#gatos">Gatos</a>
+                <a href="#alimentos">Alimentos y Snacks</a>
+                <a href="#accesorios">Accesorios</a>
+                <a href="#juguetes">Juguetes</a>
+                <a href="#higiene">Farmacia e Higiene</a>
+                <a href="index.html#ofertas" class="highlight">Ofertas %</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner Hero Especial Perros (Basado en Figma) -->
+        <section class="hero-dogs">
+            <div class="container hero-dogs-card">
+                <div class="hero-dogs-text">
+                    <span class="pill-badge">🐶 ESPECIAL PERROS</span>
+                    <h2>Todo para su mundo.<br><span class="highlight-text">Todo en Mawipo.</span></h2>
+                    <p>Comida rica, paseos felices y mucho cariño. Encuentra todo lo que tu perrito necesita para mover la cola cada día.</p>
+                    <a href="#favoritos-guau" class="btn btn-dark-pill">Ver favoritos →</a>
+                </div>
+                <div class="hero-dogs-image">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=700&q=80" alt="Perro Feliz Mawipo">
+                    <div class="love-badge">
+                        <i data-lucide="shield-check"></i>
+                        <div>
+                            <strong>Elegido con amor</strong>
+                            <span>para tu mejor amigo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Categorías Inspiradas en SuperPet -->
+        <section class="explore-section container">
+            <div class="section-header">
+                <span class="subtext">EXPLORA EL MUNDO</span>
+                <h3 class="section-title">¿Qué estamos buscando?</h3>
+            </div>
+            <div class="categories-pills">
+                <a href="#alimentos" class="pill-card">
+                    <i data-lucide="utensils"></i>
+                    <span>Alimento</span>
+                </a>
+                <a href="#snacks" class="pill-card">
+                    <i data-lucide="bone"></i>
+                    <span>Snacks</span>
+                </a>
+                <a href="#accesorios" class="pill-card">
+                    <i data-lucide="footprints"></i>
+                    <span>Paseo</span>
+                </a>
+                <a href="#juguetes" class="pill-card">
+                    <i data-lucide="smile"></i>
+                    <span>Juguetes</span>
+                </a>
+                <a href="#higiene" class="pill-card">
+                    <i data-lucide="sparkles"></i>
+                    <span>Higiene</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Favoritos que Hacen Guau -->
+        <section class="products container" id="favoritos-guau">
+            <div class="section-header flex-between">
+                <div>
+                    <span class="subtext">MÁS QUERIDOS</span>
+                    <h3 class="section-title">Favoritos que hacen guau 🐾</h3>
+                </div>
+                <a href="#" class="link-more">Ver todo →</a>
+            </div>
+
+            <!-- Filtros de Categoría -->
+            <div class="filter-tabs">
+                <button class="tab-btn active">Todos</button>
+                <button class="tab-btn">Alimento</button>
+                <button class="tab-btn">Paseo</button>
+            </div>
+
+            <div class="product-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=300&q=80" alt="Pack Nutrición">
+                    <h4 class="product-title">Pack nutrición diaria</h4>
+                    <p class="price">S/ 89.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Pack nutrición diaria', 89.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=300&q=80" alt="Kit Paseo">
+                    <h4 class="product-title">Kit paseo aventurero</h4>
+                    <p class="price">S/ 74.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Kit paseo aventurero', 74.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=300&q=80" alt="Box Premios">
+                    <h4 class="product-title">Box premios felices</h4>
+                    <p class="price">S/ 42.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Box premios felices', 42.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card">
+                    <button class="fav-icon" aria-label="Favorito"><i data-lucide="heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=300&q=80" alt="Set Descanso">
+                    <h4 class="product-title">Set descanso suave</h4>
+                    <p class="price">S/ 119.90</p>
+                    <button class="btn btn-add" onclick="addToCart('Set descanso suave', 119.90)">
+                        <i data-lucide="shopping-bag"></i> Agregar al carrito
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- Banner Suscripción Club Mawipo -->
+        <section class="club-banner container">
+            <div class="club-card">
+                <div class="club-info">
+                    <span class="subtext-light">CLUB MAWIPO</span>
+                    <h3>Cuidarlo bien también puede ser fácil.</h3>
+                    <p>Recibe recomendaciones, descuentos y recordatorios pensados para la etapa de vida de tu perro.</p>
+                </div>
+                <button class="btn btn-light-pill" onclick="openModal('modal-club')">Quiero unirme →</button>
+            </div>
+        </section>
+
+        <!-- Blog y Consejos Mawipo Lovers -->
+        <section class="blog-section container">
+            <div class="section-header">
+                <span class="subtext">MAWIPO LOVERS</span>
+                <h3 class="section-title">Consejos para colitas felices</h3>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <span class="blog-tag">NUTRICIÓN</span>
+                    <h4>¿Cómo elegir su alimento según su edad?</h4>
+                    <a href="#" class="blog-link">Leer consejo →</a>
+                </article>
+                <article class="blog-card">
+                    <span class="blog-tag">BIENESTAR</span>
+                    <h4>5 señales de que tu perro necesita más juego</h4>
+                    <a href="#" class="blog-link">Leer consejo →</a>
+                </article>
+                <article class="blog-card">
+                    <span class="blog-tag">PASEO</span>
+                    <h4>Una guía simple para paseos sin tirones</h4>
+                    <a href="#" class="blog-link">Leer consejo →</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="logo-footer">MAWIPO</h4>
+                <p>@mawipo.pet</p>
+                <p>Tu tienda pet de confianza. Todo lo que tu mascota necesita al mejor precio.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explora</h4>
+                <ul>
+                    <li><a href="perros.html">Perros</a></li>
+                    <li><a href="index.html#gatos">Gatos</a></li>
+                    <li><a href="#alimentos">Alimentos</a></li>
+                    <li><a href="#accesorios">Accesorios</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Estamos contigo</h4>
+                <p>⚡ Envíos rápidos directos a tu puerta.</p>
+                <p>🔒 Compra 100% segura.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Te ayudamos</h4>
+                <p>📞 (01) 234-5678</p>
+                <p>📱 +51 920-455-888</p>
+                <p>✉️ hola@mawipo.pe</p>
+                <p>📍 Lima, Perú</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp para la Sección Perros -->
+    <a href="https://wa.me/51920455888?text=Hola%20Mawipo,%20estoy%20en%20la%20secci%C3%B3n%20de%20Perros%20y%20tengo%20una%20consulta" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Sidebar del Carrito de Compras -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito de Compras</h3>
+            <button onclick="toggleCart()" class="close-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-msg">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">S/ 0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="checkout()">Procesar Pedido</button>
+        </div>
+    </aside>
+
+    <!-- Modal Dinámico de Confirmación / Registro -->
+    <div class="modal-overlay" id="modal-container">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div id="modal-content">
+                <!-- Contenido modal inyectado por script.js -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

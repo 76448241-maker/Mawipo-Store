@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAWIPO - Nuestras Marcas</title>
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Banner Superior Informativo -->
+    <div class="top-bar">
+        Envío gratis en Lima por compras desde S/ 99 - ¡Aprovecha hoy!
+    </div>
+
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <h1>MAWIPO</h1>
+                    <p>Guapo • Alimentos • Accesorios • Medicamentos</p>
+                </a>
+            </div>
+
+            <!-- Buscador -->
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar por marca o producto...">
+                <button aria-label="Buscar"><i data-lucide="search"></i></button>
+            </div>
+
+            <!-- Acciones de Usuario -->
+            <div class="header-actions">
+                <button class="action-btn" onclick="openModal('modal-login')">
+                    <i data-lucide="user"></i>
+                    <span>Mi cuenta</span>
+                </button>
+                <button class="action-btn">
+                    <i data-lucide="heart"></i>
+                    <span>Favoritos</span>
+                </button>
+                <button class="action-btn cart-btn" onclick="toggleCart()">
+                    <i data-lucide="shopping-cart"></i>
+                    <span>Carrito</span>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Principal con Navegación -->
+        <nav class="main-nav">
+            <div class="container nav-links">
+                <a href="index.html">← Inicio</a>
+                <a href="perros.html">Perros 🐶</a>
+                <a href="gatos.html">Gatos 🐱</a>
+                <a href="marcas.html" class="active">Marcas 🏷️</a>
+                <a href="index.html#ofertas" class="highlight">Ofertas %</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Banner Especial Marcas -->
+        <section class="hero-brands">
+            <div class="container hero-brands-card">
+                <div class="hero-brands-text">
+                    <span class="pill-badge-brand">🏷️ LAS MEJORES MARCAS</span>
+                    <h2>Las marcas preferidas<br><span class="highlight-text-brand">para tu mejor amigo.</span></h2>
+                    <p>Encuentra las mejores opciones en nutrición, cuidado e higiene avaladas por veterinarios.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtro Alfabético estilo SuperPet -->
+        <section class="alphabet-section container">
+            <h3 class="section-title">Busca por letra</h3>
+            <div class="alphabet-pills">
+                <button class="alpha-btn active">Todas</button>
+                <button class="alpha-btn">A</button>
+                <button class="alpha-btn">B</button>
+                <button class="alpha-btn">C</button>
+                <button class="alpha-btn">E</button>
+                <button class="alpha-btn">F</button>
+                <button class="alpha-btn">H</button>
+                <button class="alpha-btn">I</button>
+                <button class="alpha-btn">P</button>
+                <button class="alpha-btn">R</button>
+                <button class="alpha-btn">W</button>
+            </div>
+        </section>
+
+        <!-- Marcas Destacadas -->
+        <section class="brands-catalog container">
+            <h3 class="section-title">Marcas Principales</h3>
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <img src="https://picsum.photos/200/100?random=1" alt="Royal Canin">
+                    <h4>Royal Canin</h4>
+                    <p>Nutrición de alta precisión</p>
+                    <a href="perros.html" class="btn btn-sm btn-dark-pill">Ver productos</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://picsum.photos/200/100?random=2" alt="Hills Science Diet">
+                    <h4>Hill's</h4>
+                    <p>Ciencia y salud felina y canina</p>
+                    <a href="perros.html" class="btn btn-sm btn-dark-pill">Ver productos</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://picsum.photos/200/100?random=3" alt="Pro Plan">
+                    <h4>Pro Plan</h4>
+                    <p>Nutrición avanzada Purina</p>
+                    <a href="perros.html" class="btn btn-sm btn-dark-pill">Ver productos</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://picsum.photos/200/100?random=4" alt="Whiskas">
+                    <h4>Whiskas</h4>
+                    <p>El sabor favorito felino</p>
+                    <a href="gatos.html" class="btn btn-sm btn-dark-pill">Ver productos</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://picsum.photos/200/100?random=5" alt="Pedigree">
+                    <h4>Pedigree</h4>
+                    <p>Alimentación completa e ideal</p>
+                    <a href="perros.html" class="btn btn-sm btn-dark-pill">Ver productos</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://picsum.photos/200/100?random=6" alt="Eukanuba">
+                    <h4>Eukanuba</h4>
+                    <p>Energía para mascotas activas</p>
+                    <a href="perros.html" class="btn btn-sm btn-dark-pill">Ver productos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="logo-footer">MAWIPO</h4>
+                <p>@mawipo.pet</p>
+                <p>Tu tienda pet de confianza. Todo lo que tu mascota necesita al mejor precio.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explora</h4>
+                <ul>
+                    <li><a href="perros.html">Perros</a></li>
+                    <li><a href="gatos.html">Gatos</a></li>
+                    <li><a href="marcas.html">Marcas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Estamos contigo</h4>
+                <p>⚡ Envíos rápidos directos a tu puerta.</p>
+                <p>🔒 Compra 100% segura.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Te ayudamos</h4>
+                <p>📞 (01) 234-5678</p>
+                <p>📱 +51 920-455-888</p>
+                <p>✉️ hola@mawipo.pe</p>
+                <p>📍 Lima, Perú</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/51920455888?text=Hola%20Mawipo,%20tengo%20una%20consulta%20sobre%20sus%20marcas" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Carrito Desplegable -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito de Compras</h3>
+            <button onclick="toggleCart()" class="close-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-msg">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">S/ 0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="checkout()">Procesar Pedido</button>
+        </div>
+    </aside>
+
+    <!-- Modal Dinámico -->
+    <div class="modal-overlay" id="modal-container">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
