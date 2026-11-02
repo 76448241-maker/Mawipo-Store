@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://76448241-maker.github.io/Mawipo-Store/sitemap.xml
